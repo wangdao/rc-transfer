@@ -9,6 +9,10 @@ React Transfer
 [npm-url]: https://npmjs.com/package/rc-transfer
 ## Feature
 
+## Install
+
+[![NPM](https://nodei.co/npm/rc-transfer.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.com/package/rc-transfer)
+
 ## License
 
 rc-transfer is released under the MIT license.
