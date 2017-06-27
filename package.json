@@ -17,6 +17,8 @@
     "url": "https://github.com/wangdao/rc-transfer/issues"
   },
   "scripts": {
+    "build": "webpack --progress --profile --colors",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "wangdao",
@@ -36,6 +38,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.24.1",
+    "extract-text-webpack-plugin": "^2.1.2",
     "html-webpack-plugin": "^2.29.0",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
