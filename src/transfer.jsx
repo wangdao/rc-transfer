@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTyps from 'prop-types';
 
+import Panel from './panel';
+import Operation from './operation';
 
 class Transfer extends React.Component {
   constructor(props) {
@@ -20,12 +22,13 @@ class Transfer extends React.Component {
 
   render() {
     return (
-      <div>
-
+      <div className="dot-transfer">
+        <Panel/>
+        <Operation/>
+        <Panel/>
       </div>
-    )
+    );
   }
-
 
 
 }

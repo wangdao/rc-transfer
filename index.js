@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Transfer from './src';
 
 
-ReactDOM.render(<div>Hello World</div>, document.getElementById("app"));
+
+ReactDOM.render(<Transfer/>, document.getElementById("app"));
