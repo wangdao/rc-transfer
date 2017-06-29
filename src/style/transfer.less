@@ -46,13 +46,17 @@
     }
 
     &-item {
-      height: 32px;
+      min-height: 32px;
       padding: 6px 12px;
       cursor: pointer;
       transition: all .3s;
 
       &:hover {
         background-color: tint(@primary-color, 85%);
+      }
+
+      &>ul:last-child{
+        padding: 0 0 0 12px;
       }
     }
   }

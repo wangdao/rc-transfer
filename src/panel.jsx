@@ -27,12 +27,12 @@ class Panel extends React.Component {
         title: 'content-' + i
       };
 
-      if (node % 4 === 0) {
+      if (i % 4 === 0) {
         node.children = [];
 
         for (let j=0;j<20;j++) {
           node.children.push({
-            key: j,
+            key: i + '-' +j,
             title: 'sub-content-' + j
           })
         }
@@ -40,6 +40,18 @@ class Panel extends React.Component {
 
       contents.push(node)
     }
+
+    const loop = items => items.map(item => {
+      if (item.children) {
+        return (
+          <Item key={item.key} title={item.title}>
+            {loop(item.children)}
+          </Item>
+        )
+      }
+
+      return <Item key={item.key} title={item.title}/>
+    });
 
     return (
       <div className="dot-transfer-panel">
@@ -55,9 +67,7 @@ class Panel extends React.Component {
         <div className="dot-transfer-panel-body">
           <div className="dot-transfer-list">
             <ul>
-              {
-                contents.map(item => <Item key={item.key} title={item.title}/>)
-              }
+              {loop(contents)}
             </ul>
           </div>
         </div>
