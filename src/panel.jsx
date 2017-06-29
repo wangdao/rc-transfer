@@ -12,7 +12,6 @@ class Panel extends React.Component {
   render() {
     return (
       <div className="dot-transfer-panel">
-        <Checkbox>Checkbox</Checkbox>
       </div>
     )
   }
