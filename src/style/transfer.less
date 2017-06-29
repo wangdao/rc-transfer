@@ -15,7 +15,45 @@
     vertical-align: middle;
 
     &-header {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      padding: 6px 12px;
+      border-bottom: 1px solid #d9d9d9;
 
+      &-title {
+        position: absolute;
+        right: 16px;
+      }
+    }
+
+    &-body {
+      height: 100%;
+      padding-top: 33px;
+    }
+
+
+  }
+
+  &-list {
+    height: 100%;
+    overflow: auto;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    &-item {
+      height: 32px;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all .3s;
+
+      &:hover {
+        background-color: tint(@primary-color, 85%);
+      }
     }
   }
 

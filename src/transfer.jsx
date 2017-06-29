@@ -22,10 +22,10 @@ class Transfer extends React.Component {
 
   render() {
     return (
-      <div className="dot-transfer">
-        <Panel/>
+      <div className='dot-transfer'>
+        <Panel title='Source'/>
         <Operation/>
-        <Panel/>
+        <Panel title='Target'/>
       </div>
     );
   }
