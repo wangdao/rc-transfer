@@ -41,16 +41,22 @@ class Panel extends React.Component {
       contents.push(node)
     }
 
-    const loop = items => items.map(item => {
+    const loop = (items, level = 0) => items.map(item => {
+      const style = {};
+
+      if (level > 0) {
+        style.paddingLeft = 12 * (level + 1) + 20;
+      }
+
       if (item.children) {
         return (
-          <Item key={item.key} title={item.title}>
-            {loop(item.children)}
+          <Item key={item.key} title={item.title} style={style}>
+            {loop(item.children, level + 1)}
           </Item>
         )
       }
 
-      return <Item key={item.key} title={item.title}/>
+      return <Item key={item.key} title={item.title} style={style}/>
     });
 
     return (

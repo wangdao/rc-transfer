@@ -36,6 +36,10 @@ module.exports = {
         // loader: "style-loader!css-loader!less-loader?sourceMap"
         // include: /components/
       },
+      {
+        test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
+        loader: 'url-loader'
+      }
     ]
   },
   devServer: {

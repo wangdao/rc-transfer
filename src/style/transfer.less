@@ -3,6 +3,7 @@
 
 .@{transfer-prefix} {
   font-size: @font-size;
+  color: rgba(0,0,0,.65);
 
   &-panel {
     display: inline-block;
@@ -46,18 +47,34 @@
     }
 
     &-item {
-      min-height: 32px;
-      padding: 6px 12px;
-      cursor: pointer;
-      transition: all .3s;
 
-      &:hover {
-        background-color: tint(@primary-color, 85%);
+      &-title {
+        min-height: 32px;
+        padding: 6px 12px 6px 5px;
+        cursor: pointer;
+        transition: all .3s;
+
+        i:first-child {
+          margin: 0;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          display: inline-block;
+          vertical-align: middle;
+          border: 0 none;
+          cursor: pointer;
+          outline: none;
+          text-align: center;
+        }
+
+        &:hover {
+          background-color: tint(@primary-color, 85%);
+        }
       }
 
-      &>ul:last-child{
+      /*&>ul:last-child{
         padding: 0 0 0 12px;
-      }
+      }*/
     }
   }
 
