@@ -15,7 +15,8 @@ export default class Checkbox extends React.Component {
   }
 
   static propTypes = {
-    checked: PropTypes.bool
+    checked: PropTypes.bool,
+    onChange: PropTypes.func
   };
 
   componentWillReceiveProps(nextProps) {
@@ -27,16 +28,25 @@ export default class Checkbox extends React.Component {
   }
 
   handleChange = (e)=> {
-    const {disabled} = this.props;
+    const {disabled, onChange} = this.props;
 
     if (disabled) {return;}
 
+    let checked;
+
     if (!('checked' in this.props)) {
+      checked = e.target.checked;
+
       this.setState({
-        checked: e.target.checked
-      })
+        checked: checked
+      });
+    } else {
+      checked = !this.state.checked;
     }
 
+    if (onChange) {
+      onChange(checked);
+    }
 
   };
 

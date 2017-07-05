@@ -9,7 +9,8 @@ class Item extends React.Component {
     super(props);
 
     this.state = {
-      expand: false
+      expand: false,
+      checked: false
     }
   }
 
@@ -19,7 +20,7 @@ class Item extends React.Component {
     expand: PropTypes.bool
   };
 
-  static defaultPropTypes = {
+  static defaultProps = {
     expand: false
   };
 
@@ -39,19 +40,36 @@ class Item extends React.Component {
     })
   }
 
-  renderChildren = () => {
+  handleSwitcherClick = (e) => {
+    e.stopPropagation();
+
+    this.setState({
+      expand: !this.state.expand
+    });
+
 
   };
 
-  handleSwitcherClick = () => {
+  handleClick =(e) => {
+    e.stopPropagation();
+
+    const {checked} = this.state;
     this.setState({
-      expand: !this.state.expand
+      checked: !checked
+    })
+
+
+  };
+
+  handleCheckboxChange = (checked) => {
+    this.setState({
+      checked: checked
     })
   };
 
   render() {
     const {title, children, style} = this.props;
-    const {expand} = this.state;
+    const {expand, checked} = this.state;
 
     const switcherClasses = classNames({
       doticon: true,
@@ -60,10 +78,10 @@ class Item extends React.Component {
     });
 
     return (
-      <li className="dot-transfer-list-item dot-transfer-list-item-expand">
-        <div className="dot-transfer-list-item-title" style={style}>
-          {children ? <i onClick={this.handleSwitcherClick} className={switcherClasses}></i> : null}
-          <Checkbox/>
+      <li className="dot-transfer-list-item dot-transfer-list-item-expand" >
+        <div className="dot-transfer-list-item-title" style={style} onClick={this.handleClick}>
+          {children ? <i onClick={this.handleSwitcherClick} className={switcherClasses}></i> : <i></i>}
+          <Checkbox checked={checked} onChange={this.handleCheckboxChange}/>
           <span>{title}</span>
         </div>
 
