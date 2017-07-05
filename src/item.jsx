@@ -17,7 +17,8 @@ class Item extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     style: PropTypes.object,
-    expand: PropTypes.bool
+    expand: PropTypes.bool,
+    onSelect: PropTypes.func
   };
 
   static defaultProps = {
@@ -43,6 +44,8 @@ class Item extends React.Component {
   handleSwitcherClick = (e) => {
     e.stopPropagation();
 
+    console.log('handleSwitcherClick');
+
     this.setState({
       expand: !this.state.expand
     });
@@ -51,20 +54,40 @@ class Item extends React.Component {
   };
 
   handleClick =(e) => {
+    if (e.target && e.target.matches('input')) {
+      return;
+    }
     e.stopPropagation();
+
+    console.log('handleClick');
+
+    const {onSelect} = this.props;
 
     const {checked} = this.state;
     this.setState({
       checked: !checked
-    })
+    });
 
-
+    if (onSelect) {
+      onSelect(!checked);
+    }
   };
 
-  handleCheckboxChange = (checked) => {
+  handleCheckboxChange = (checked, e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    console.log('handleCheckboxChange');
+
+    const {onSelect} = this.props;
+
     this.setState({
       checked: checked
-    })
+    });
+
+    if (onSelect) {
+      onSelect(checked);
+    }
   };
 
   render() {

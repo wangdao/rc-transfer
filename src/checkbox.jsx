@@ -45,7 +45,7 @@ export default class Checkbox extends React.Component {
     }
 
     if (onChange) {
-      onChange(checked);
+      onChange(checked, e);
     }
 
   };

@@ -7,10 +7,17 @@ const Operation = ({leftActive, rightActive, onMoveToLeft, onMoveToRight}) => {
 
   return (
     <div className="dot-transfer-operation">
-      <Button>左移</Button>
-      <Button>右移</Button>
+      <Button disabled={!leftActive}>左移</Button>
+      <Button disabled={!rightActive}>右移</Button>
     </div>
   )
+};
+
+Operation.propTypes = {
+  leftActive: PropTyps.bool,
+  rightActive: PropTyps.bool,
+  onMoveToLeft: PropTyps.func,
+  onMoveToRight: PropTyps.func
 };
 
 
